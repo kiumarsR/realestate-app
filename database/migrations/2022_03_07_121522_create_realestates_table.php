@@ -21,7 +21,8 @@ return new class extends Migration {
             $table->string('title');
             $table->string('ad_type')->comment('sale|rent|mortage');
             $table->integer('sale_price');
-            $table->integer('security_deposit')->comment('security deposit required for rent or mortage a realestate');
+            $table->integer('security_deposit')->comment('security deposit required for rent a realestate');
+            $table->integer('mortage_deposit')->comment('security deposit required for mortage a realestate');
             $table->integer('rent_price');
             $table->string('full_address');
             $table->text('description');
