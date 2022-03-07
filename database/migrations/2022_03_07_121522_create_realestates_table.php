@@ -24,6 +24,7 @@ return new class extends Migration {
             $table->integer('security_deposit')->comment('security deposit required for rent a realestate');
             $table->integer('mortage_deposit')->comment('security deposit required for mortage a realestate');
             $table->integer('rent_price');
+            $table->integer('area');
             $table->string('full_address');
             $table->text('description');
             $table->integer('total_floors')->comment('The whole floors of the building');
