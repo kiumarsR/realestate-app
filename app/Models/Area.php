@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
+class Area extends Model
 {
     use HasFactory;
 
     /**
-     * Get the province that owns the city.
+     * Get the province that owns the city area.
      */
     public function province()
     {
@@ -18,10 +18,10 @@ class City extends Model
     }
 
     /**
-     * Get the areas ad for the city.
+     * Get the city that owns the city area.
      */
-    public function areas()
+    public function city()
     {
-        return $this->hasMany(Area::class);
+        return $this->belongsTo(City::class);
     }
 }

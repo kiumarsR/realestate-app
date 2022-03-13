@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('body');
             $table->morphs('commentable');
-            $table->boolean('active')->default(0);
+            $table->boolean('approved')->default(0);
             $table->timestamps();
         });
     }
