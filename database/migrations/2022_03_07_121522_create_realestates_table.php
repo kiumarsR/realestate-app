@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('user_id');
             $table->integer('province_id');
             $table->integer('city_id');
-            $table->integer('zone_id')->nullable();
+            $table->integer('district_id')->nullable();
             $table->string('title');
             $table->string('ad_type')->comment('sale|rent|mortage');
             $table->integer('sale_price');

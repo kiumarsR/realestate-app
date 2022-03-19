@@ -31,8 +31,8 @@ class Province extends Model implements HasMedia
     /**
      * Get the cities ad for the province.
      */
-    public function areas()
+    public function districts()
     {
-        return $this->hasMany(Area::class);
+        return $this->hasMany(District::class);
     }
 }

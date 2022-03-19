@@ -20,8 +20,8 @@ class City extends Model
     /**
      * Get the areas ad for the city.
      */
-    public function areas()
+    public function districts()
     {
-        return $this->hasMany(Area::class);
+        return $this->hasMany(Districts::class);
     }
 }

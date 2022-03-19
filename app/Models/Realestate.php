@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\ModelStatus\HasStatuses;
 
-class Realestate extends Model implements HasMedia
+class Realestate extends Model implements
+    HasMedia
 // implements HasMedia
 {
-    use HasFactory, InteractsWithMedia;
+    use HasFactory, InteractsWithMedia, HasStatuses;
 
     /**
      * Get the user that owns the realestate ad.
@@ -40,9 +42,9 @@ class Realestate extends Model implements HasMedia
     /**
     * Get the user that owns the realestate ad.
     */
-    public function area()
+    public function district()
     {
-        return $this->belongsTo(Area::class);
+        return $this->belongsTo(District::class);
     }
 
     /**

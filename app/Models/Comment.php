@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\ModelStatus\HasStatuses;
 
 class Comment extends Model
 {
-    use HasFactory;
+    use HasFactory, HasStatuses;
 
     /**
      * Get the user that owns the comment.
