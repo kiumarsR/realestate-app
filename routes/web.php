@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\PropertyController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Realestate\RealestateController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,9 +24,9 @@ Route::prefix('/user')->group(function () {
     Route::get('/add-property', [UserController::class, 'addProperty'])->name('add-properties');
 });
 Route::prefix('/properties')->group(function () {
-    Route::get('/', [PropertyController::class, 'properties'])->name('properties');
-    Route::get('/single', [PropertyController::class, 'single'])->name('single-property');
-    Route::get('/add-property', [PropertyController::class, 'create'])->name('add-property');
+    Route::get('/', [RealestateController::class, 'properties'])->name('properties');
+    Route::get('/single', [RealestateController::class, 'single'])->name('single-property');
+    Route::get('/add-property', [RealestateController::class, 'create'])->name('add-property');
 });
 
 Route::view('/contact', 'pages.contact')->name('contact');
