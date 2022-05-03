@@ -18,7 +18,7 @@ class City extends Model
     }
 
     /**
-     * Get the areas ad for the city.
+     * Get the districts for the city.
      */
     public function districts()
     {

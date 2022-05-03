@@ -8,7 +8,6 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Province extends Model implements HasMedia
-
 {
     use HasFactory, InteractsWithMedia;
 

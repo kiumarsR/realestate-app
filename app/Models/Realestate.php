@@ -13,6 +13,33 @@ class Realestate extends Model implements
     HasMedia
 // implements HasMedia
 {
+    protected $fillable = [
+        'user_id',
+        'province_id',
+        'city_id',
+        'district_id',
+        'title',
+        'ad_type',
+        'sale_price',
+        'area',
+        'full_address',
+        'description',
+        'total_floors',
+        'apartment_floor',
+        'noaf',
+        'total_bedrooms',
+        'wc_type',
+        'building_age',
+        'tobu',
+        'building_direction',
+        'frontage_type',
+        'fct',
+        'kitchen_cabinets',
+        'heating_system',
+        'cooling_system',
+        'housing',
+        'dst',
+    ];
     use HasFactory, InteractsWithMedia, HasStatuses;
 
     /**
@@ -54,4 +81,6 @@ class Realestate extends Model implements
     {
         return $this->morphMany(Comment::class, 'commentable');
     }
+
+    
 }

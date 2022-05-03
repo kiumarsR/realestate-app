@@ -494,6 +494,8 @@
 <!-- Document Wrapper
 ============================================= -->
 <!-- <div id="wrapper" class="wrapper clearfix"> -->
+</div>
+<!-- #wrapper end -->
 
 
 
@@ -505,8 +507,6 @@
 @section('footer')
 @include('layout.footer')
 @endsection
-<!-- </div> -->
-<!-- #wrapper end -->
 
 <!-- Footer Scripts
 ============================================= -->

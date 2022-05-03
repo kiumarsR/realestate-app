@@ -150,7 +150,8 @@
                                         <div class="tab-content">
                                             <div class="tab-pane fade in active" id="login">
                                                 <div class="signup-form-container text-center">
-                                                    <form class="mb-0">
+                                                    <form class="mb-0" action="" method="POST">
+                                                        @csrf
                                                         <!-- <a href="#" class="btn btn--facebook btn--block"><i class="fa fa-facebook-square"></i>Login with Facebook</a>
                                                             <div class="or-text">
                                                                 <span>or</span>
@@ -178,7 +179,7 @@
                                                 <!-- .signup-form end -->
                                             </div>
                                             <div class="tab-pane" id="signup">
-                                                <form class="mb-0">
+                                                <form class="mb-0" action="" method="POST">
                                                     <!-- <a href="#" class="btn btn--facebook btn--block"><i class="fa fa-facebook-square"></i>Register with Facebook</a>
                                                         <div class="or-text">
                                                             <span>or</span>
@@ -192,7 +193,11 @@
                                                     </div>
                                                     <!-- .form-group end -->
                                                     <div class="form-group">
-                                                        <input type="email" class="form-control" name="register-email" id="register-email" placeholder="نام کاربری(شماره موبایل)">
+                                                        <input type="text" class="form-control" name="user_name" id="user_name" placeholder="نام کاربری(شماره موبایل)">
+                                                    </div>
+                                                    <!-- .form-group end -->
+                                                    <div class="form-group">
+                                                        <input type="email" class="form-control" name="email" id="register-email" placeholder="ایمیل">
                                                     </div>
                                                     <!-- .form-group end -->
                                                     <div class="form-group">
