@@ -3,9 +3,9 @@
 	============================================= -->
 <div id="wrapper" class="wrapper clearfix">
     @section('header-transparent', 'header-transparent')
-@section('header')
+    @section('header')
     @include('layout.pages-header')
-@endsection
+    @endsection
 
     <!--404
 =============================================-->
