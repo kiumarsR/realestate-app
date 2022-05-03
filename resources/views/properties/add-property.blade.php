@@ -19,7 +19,8 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
 
-                    <form class="mb-0">
+                    <form class="mb-0" action="{{route('properties.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="form-box">
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -36,22 +37,37 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <label for="property-description">توضیحات آگهی*</label>
-                                        <textarea class="form-control" name="property-description" id="property-description" rows="2"></textarea>
+                                        <textarea class="form-control" name="property-description" id="property-description" rows="2" required></textarea>
                                     </div>
                                 </div>
                                 <!-- .col-md-12 end -->
                                 <div class="col-xs-12 col-sm-4 col-md-4">
                                     <div class="form-group">
-                                        <label for="select-type">نوع ملک</label>
+                                        <label for="tobu-type">نوع ملک</label>
                                         <div class="select--box">
                                             <i class="fa fa-angle-down"></i>
-                                            <select id="select-type">
-                                                <option>ویلایی</option>
-                                                <option>آپارتمان</option>
-                                                <option>اداری</option>
-                                                <option>تجاری</option>
-                                                <option>کلنگی</option>
-                                                <option>زمین/باغ</option>
+                                            <select name="tobu" id="tobu" required>
+                                                <option>انتخاب کنید</option>
+                                                <option value="villa">ویلایی</option>
+                                                <option value="apartment">آپارتمان</option>
+                                                <option value="office">اداری</option>
+                                                <option value="business">تجاری</option>
+                                                <option value="old">کلنگی</option>
+                                                <option value="garden/land">زمین/باغ</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- .col-md-4 end -->
+                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label for="select-status">نوع کاربری</label>
+                                        <div class="select--box">
+                                            <i class="fa fa-angle-down"></i>
+                                            <select name="ad_type">
+                                                <option value="">انتخاب کنید</option>
+                                                <option value="sale">مسکونی</option>
+                                                <option value="rent">تجاری/اداری</option>
                                             </select>
                                         </div>
                                     </div>
@@ -62,10 +78,11 @@
                                         <label for="select-status">نوع آگهی</label>
                                         <div class="select--box">
                                             <i class="fa fa-angle-down"></i>
-                                            <select id="select-status">
-                                                <option>فروش</option>
-                                                <option>اجاره</option>
-                                                <option>رهن</option>
+                                            <select name="ad_type">
+                                                <option value="">انتخاب کنید</option>
+                                                <option value="sale">فروش</option>
+                                                <option value="rent">اجاره</option>
+                                                <option value="mortage">رهن</option>
                                             </select>
                                         </div>
                                     </div>
@@ -73,14 +90,98 @@
                                 <!-- .col-md-4 end -->
                                 <div class="col-xs-12 col-sm-4 col-md-4">
                                     <div class="form-group">
-                                        <label for="province">استان</label>
+                                        <label for="Sale-Rent-Price">قیمت فروش یا اجاره*</label>
+                                        <input type="text" class="form-control" name="sale_rent_price" id="Sale-Rent-Price" placeholder="تومان" required>
+                                    </div>
+                                </div>
+                                <!-- .col-md-4 end -->
+                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label for="province">تعداد طبقات ساختمان</label>
                                         <div class="select--box">
                                             <i class="fa fa-angle-down"></i>
-                                            <select id="province">
-                                                <option>تهران</option>
-                                                <option>شیراز</option>
-                                                <option>تبریز</option>
-                                                <option>خراسان رضوی</option>
+                                            <select name="total_floors" id="total_floors">
+                                                <option>انتخاب کنید</option>
+                                                <option value="1">۱</option>
+                                                <option value="2">۲</option>
+                                                <option value="3">۳</option>
+                                                <option value="4">۴</option>
+                                                <option value="5">۵</option>
+                                                <option value="6">۶</option>
+                                                <option value="7">۷</option>
+                                                <option value="8">۸</option>
+                                                <option value="9">۹</option>
+                                                <option value="10">۱۰</option>
+                                                <option value="11">۱۱</option>
+                                                <option value="12">۱۲</option>
+                                                <option value="13">۱۳</option>
+                                                <option value="14">۱۴</option>
+                                                <option value="15">۱۵</option>
+                                                <option value="16">۱۶</option>
+                                                <option value="17">۱۷</option>
+                                                <option value="18">۱۸</option>
+                                                <option value="19">۱۹</option>
+                                                <option value="20">۲۰</option>
+                                                <option value="21">۲۱</option>
+                                                <option value="22">۲۲</option>
+                                                <option value="23">۲۳</option>
+                                                <option value="24">۲۴</option>
+                                                <option value="25">۲۵</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- .col-md-4 end -->
+                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label for="noaf">تعداد واحد در هر طبقه</label>
+                                        <div class="select--box">
+                                            <i class="fa fa-angle-down"></i>
+                                            <select id="noaf" name="noaf">
+                                                <option>انتخاب کنید</option>
+                                                <option value="1">۱</option>
+                                                <option value="2">۲</option>
+                                                <option value="3">۳</option>
+                                                <option value="4">۴</option>
+                                                <option value="5">۵</option>
+                                                <option value="6">۶</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- .col-md-4 end -->
+                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label for="apartment_floor">طبقه واحد</label>
+                                        <div class="select--box">
+                                            <i class="fa fa-angle-down"></i>
+                                            <select id="apartment_floor" name="apartment_floor">
+                                                <option>انتخاب کنید</option>
+                                                <option value="1">۱</option>
+                                                <option value="2">۲</option>
+                                                <option value="3">۳</option>
+                                                <option value="4">۴</option>
+                                                <option value="5">۵</option>
+                                                <option value="6">۶</option>
+                                                <option value="7">۷</option>
+                                                <option value="8">۸</option>
+                                                <option value="9">۹</option>
+                                                <option value="10">۱۰</option>
+                                                <option value="11">۱۱</option>
+                                                <option value="12">۱۲</option>
+                                                <option value="13">۱۳</option>
+                                                <option value="14">۱۴</option>
+                                                <option value="15">۱۵</option>
+                                                <option value="16">۱۶</option>
+                                                <option value="17">۱۷</option>
+                                                <option value="18">۱۸</option>
+                                                <option value="19">۱۹</option>
+                                                <option value="20">۲۰</option>
+                                                <option value="21">۲۱</option>
+                                                <option value="22">۲۲</option>
+                                                <option value="23">۲۳</option>
+                                                <option value="24">۲۴</option>
+                                                <option value="25">۲۵</option>
                                             </select>
                                         </div>
                                     </div>
@@ -92,12 +193,13 @@
                                         <div class="select--box">
                                             <i class="fa fa-angle-down"></i>
                                             <select id="bedrooms" name="bedrooms">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6 و بیشتر</option>
+                                                <option>انتخاب کنید</option>
+                                                <option value="1">۱</option>
+                                                <option value="2">۲</option>
+                                                <option value="3">۳</option>
+                                                <option value="4">۴</option>
+                                                <option value="5">۵</option>
+                                                <option value="6">۶ و بیشتر</option>
                                             </select>
                                         </div>
                                     </div>
@@ -108,10 +210,11 @@
                                         <label for="bathrooms">نوع سرویس بهداشتی</label>
                                         <div class="select--box">
                                             <i class="fa fa-angle-down"></i>
-                                            <select id="bathrooms" name="bathrooms">
-                                                <option>ایرانی</option>
-                                                <option>فرنگی</option>
-                                                <option>هر دو</option>
+                                            <select id="bathrooms" name="bathrooms_type">
+                                                <option>انتخاب کنید</option>
+                                                <option value="persian">ایرانی</option>
+                                                <option value="foreign">فرنگی</option>
+                                                <option value="both">هر دو</option>
                                             </select>
                                         </div>
                                     </div>
@@ -122,10 +225,15 @@
                                         <label for="floors">نوع کفپوش</label>
                                         <div class="select--box">
                                             <i class="fa fa-angle-down"></i>
-                                            <select id="floors" name="floors">
-                                                <option>ایرانی</option>
-                                                <option>فرنگی</option>
-                                                <option>هر دو</option>
+                                            <select id="fct" name="fct">
+                                                <option>انتخاب کنید</option>
+                                                <option value="Laminated">لمینت</option>
+                                                <option value="Parquet">پارکت</option>
+                                                <option value="Mosaic">موزاییک</option>
+                                                <option value="Cement">سیمان</option>
+                                                <option value="ceramic">سرامیک</option>
+                                                <option value="flagstone">سنگ</option>
+                                                <option value="tile">کاشی</option>
                                             </select>
                                         </div>
                                     </div>
@@ -136,11 +244,12 @@
                                         <label for="cabinet">کابینت</label>
                                         <div class="select--box">
                                             <i class="fa fa-angle-down"></i>
-                                            <select id="cabinet" name="cabinet">
-                                                <option>ام دی اف</option>
-                                                <option>چوبی</option>
-                                                <option>آهنی</option>
-                                                <option>چوب و آهن</option>
+                                            <select id="cabinet" name="kitchen_cabinets">
+                                                <option>انتخاب کنید</option>
+                                                <option value="mdf">ام دی اف</option>
+                                                <option value="wooden">چوبی</option>
+                                                <option value="metal">آهنی</option>
+                                                <option value="metal_wooden">چوب و آهن</option>
                                             </select>
                                         </div>
                                     </div>
@@ -149,49 +258,144 @@
                                 <div class="col-xs-12 col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label for="Area">متراژ</label>
-                                        <input type="text" class="form-control" name="Area" id="Area" placeholder="sq ft">
+                                        <input type="text" class="form-control" name="area" id="Area" placeholder="متر مربع">
                                     </div>
                                 </div>
                                 <!-- .col-md-4 end -->
                                 <div class="col-xs-12 col-sm-4 col-md-4">
                                     <div class="form-group">
-                                        <label for="Size">Size</label>
-                                        <input type="text" class="form-control" name="Size" id="Size" placeholder="sq ft">
+                                        <label for="building_age">سن بنا</label>
+                                        <div class="select--box">
+                                            <i class="fa fa-angle-down"></i>
+                                            <select id="building_age" name="building_age">
+                                                <option>انتخاب کنید</option>
+                                                <option value="1">۱</option>
+                                                <option value="2">۲</option>
+                                                <option value="3">۳</option>
+                                                <option value="4">۴</option>
+                                                <option value="5">۵</option>
+                                                <option value="6">۶</option>
+                                                <option value="7">۷</option>
+                                                <option value="8">۸</option>
+                                                <option value="9">۹</option>
+                                                <option value="10">۱۰</option>
+                                                <option value="11">۱۱</option>
+                                                <option value="12">۱۲</option>
+                                                <option value="13">۱۳</option>
+                                                <option value="14">۱۴</option>
+                                                <option value="15">۱۵</option>
+                                                <option value="16">۱۶</option>
+                                                <option value="17">۱۷</option>
+                                                <option value="18">۱۸</option>
+                                                <option value="19">۱۹</option>
+                                                <option value="20">۲۰</option>
+                                                <option value="21">۲۱</option>
+                                                <option value="22">۲۲</option>
+                                                <option value="23">۲۳</option>
+                                                <option value="24">۲۴</option>
+                                                <option value="25">۲۵</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- .col-md-4 end -->
                                 <div class="col-xs-12 col-sm-4 col-md-4">
                                     <div class="form-group">
-                                        <label for="Sale-Rent-Price">Sale or Rent Price*</label>
-                                        <input type="text" class="form-control" name="Sale-Rent-Price" id="Sale-Rent-Price" required>
+                                        <label for="building_direction">جهت ساختمان</label>
+                                        <div class="select--box">
+                                            <i class="fa fa-angle-down"></i>
+                                            <select id="building_direction" name="building_direction">
+                                                <option>انتخاب کنید</option>
+                                                <option value="north">شمالی</option>
+                                                <option value="south">جنوبی</option>
+                                                <option value="east">شرقی</option>
+                                                <option value="west">غربی</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- .col-md-4 end -->
                                 <div class="col-xs-12 col-sm-4 col-md-4">
                                     <div class="form-group">
-                                        <label for="Before-Price-Label">Before Price Label</label>
-                                        <input type="text" class="form-control" name="Before-Price-Label" id="Before-Price-Label" placeholder="ex: start from">
+                                        <label for="frontage_type">نما ساختمان</label>
+                                        <div class="select--box">
+                                            <i class="fa fa-angle-down"></i>
+                                            <select id="frontage_type" name="frontage_type">
+                                                <option>انتخاب کنید</option>
+                                                <option value="stone">سنگی</option>
+                                                <option value="brick">آجری</option>
+                                                <option value="cement">سیمانی</option>
+                                                <option value="composite">کامپوزیتی</option>
+                                                <option value="biramics ">بایرامیکس</option>
+                                                <option value="glass ">شیشه ای</option>
+                                                <option value="wooden ">چوبی</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- .col-md-4 end -->
                                 <div class="col-xs-12 col-sm-4 col-md-4">
                                     <div class="form-group">
-                                        <label for="After-Price-Label">After Price Label</label>
-                                        <input type="text" class="form-control" name="After-Price-Label" id="After-Price-Label" placeholder="ex: monthly">
+                                        <label for="heating_system">سیستم گرمایش</label>
+                                        <div class="select--box">
+                                            <i class="fa fa-angle-down"></i>
+                                            <select id="heating_system" name="heating_system">
+                                                <option>انتخاب کنید</option>
+                                                <option value="heater">بخاری</option>
+                                                <option value="boiler-room">موتورخانه</option>
+                                                <option value="combi">پکیج</option>
+                                                <option value="fireplace">شومینه</option>
+                                                <option value="under-floor-heating ">گرمایش از کف</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- .col-md-4 end -->
                                 <div class="col-xs-12 col-sm-4 col-md-4">
                                     <div class="form-group">
-                                        <label for="Property-ID">Property ID*</label>
-                                        <input type="text" class="form-control" name="Property-ID" id="Property-ID">
+                                        <label for="cooling_system">سیستم سرمایش</label>
+                                        <div class="select--box">
+                                            <i class="fa fa-angle-down"></i>
+                                            <select id="cooling_system" name="cooling_system">
+                                                <option>انتخاب کنید</option>
+                                                <option value="evaporative-cooler">کولر آبی</option>
+                                                <option value="air-conditioner-room">کولر گازی</option>
+                                                <option value="duct-split">داکت اسپیلت</option>
+                                                <option value="chiller">چیلر</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- .col-md-4 end -->
                                 <div class="col-xs-12 col-sm-4 col-md-4">
                                     <div class="form-group">
-                                        <label for="Video-URL">Video URL</label>
-                                        <input type="text" class="form-control" name="Video-URL" id="Video-URL" placeholder="Youtube, Vimeo, Dailymotion, etc..">
+                                        <label for="Video-URL">سند</label>
+                                        <div class="select--box">
+                                            <i class="fa fa-angle-down"></i>
+                                            <select id="dst" name="dsrt">
+                                                <option>انتخاب کنید</option>
+                                                <option value="mdf">تک برگ</option>
+                                                <option value="metal">قولنامه ای</option>
+                                                <option value="metal_wooden">منگوله دار</option>
+                                                <option value="metal_wooden">طرح لویزان</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- .col-md-4 end -->
+                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label for="dst">نوع سند</label>
+                                        <div class="select--box">
+                                            <i class="fa fa-angle-down"></i>
+                                            <select id="dst" name="dst">
+                                                <option>انتخاب کنید</option>
+                                                <option value="personal">شخصی</option>
+                                                <option value="contract">قولنامه ای</option>
+                                                <option value="imam">فرمان امام</option>
+                                                <option value="orginization">ارگانی</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- .col-md-4 end -->
@@ -431,8 +635,16 @@
                                 <!-- .col-md-4 end -->
                                 <div class="col-xs-12 col-sm-4 col-md-4">
                                     <div class="form-group">
-                                        <label for="state">state</label>
-                                        <input type="text" class="form-control" name="state" id="state">
+                                        <label for="housing">وضعیت سکونت</label>
+                                        <div class="select--box">
+                                            <i class="fa fa-angle-down"></i>
+                                            <select id="housing" name="housing">
+                                                <option>انتخاب کنید</option>
+                                                <option value="evacuated">تخلیه</option>
+                                                <option value="owner">در دست مالک</option>
+                                                <option value="tenant">در دست مستاجر</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- .col-md-4 end -->
@@ -484,5 +696,5 @@
 <!-- Footer Scripts
 ============================================= -->
 @push('footer.scripts')
-<script src="assets/js/dropzone.js"></script>
+<script src="{{asset('assets/js/plugins/dropzone.js')}}"></script>
 @endpush
