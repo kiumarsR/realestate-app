@@ -604,6 +604,5 @@ class DistrictSeeder extends Seeder
         }, $districts);
 
         District::insert($insert);
-
     }
 }
