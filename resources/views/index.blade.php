@@ -21,14 +21,11 @@
                                     <div class="form-group">
                                         <div class="select--box">
                                             <i class="fa fa-angle-down"></i>
-                                            <select name="select-location" id="select-location">
+                                            <select name="select-province" id="select-province">
                                                 <option>انتخاب استان</option>
-                                                <option>Alabama</option>
-                                                <option>Alaska</option>
-                                                <option>California</option>
-                                                <option>Florida</option>
-                                                <option>Mississippi</option>
-                                                <option>Oregon</option>
+                                                @foreach ($provinces as $province)
+                                                    <option value="{{$province->id}}">{{$province->name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -55,9 +52,9 @@
                                             <i class="fa fa-angle-down"></i>
                                             <select name="select-status" id="select-status">
                                                 <option>نوع آگهی</option>
-                                                <option>فروش</option>
-                                                <option>اجاره</option>
-                                                <option>رهن</option>
+                                                <option value="sale">فروش</option>
+                                                <option value="mortage">رهن</option>
+                                                <option value="rent">اجاره</option>
                                             </select>
                                         </div>
                                     </div>
@@ -151,168 +148,34 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="carousel carousel-dots" data-slide="3" data-slide-rs="2" data-autoplay="true" data-nav="false" data-dots="true" data-space="25" data-loop="true" data-speed="800">
+                    @foreach ($realestates as $realestate)
                     <!-- .property-item #1 -->
                     <div class="property-item">
                         <div class="property--img">
                             <a href="#">
                                 <img src="{{asset('assets/images/properties/3.jpg')}}" alt="property image" class="img-responsive">
-                                <span class="property--status">فروش</span>
+                                <span class="property--status">{{$realestate->ad_type}}</span>
                             </a>
                         </div>
                         <div class="property--content">
                             <div class="property--info">
-                                <h5 class="property--title"><a href="#">خانه ویلایی در تهران.</a></h5>
-                                <p class="property--location">34 Long St, Jersey City, NJ 07305</p>
-                                <p class="property--price">$70,000</p>
+                                <h5 class="property--title"><a href="#">{{$realestate->title}}</a></h5>
+                                <p class="property--location">{{$realestate->full_address}}</p>
+                                <p class="property--price">{{$realestate->sale_price}}</p>
                             </div>
                             <!-- .property-info end -->
                             <div class="property--features">
                                 <ul class="list-unstyled mb-0">
-                                    <li><span class="feature">Beds:</span><span class="feature-num">2</span></li>
-                                    <li><span class="feature">Baths:</span><span class="feature-num">1</span></li>
-                                    <li><span class="feature">Area:</span><span class="feature-num">200 sq ft</span></li>
+                                    <li><span class="feature">اتاق خواب:</span><span class="feature-num">{{$realestate->total_bedrooms}}</span></li>
+                                    <li><span class="feature">سرویس بهداشتی:</span><span class="feature-num">1</span></li>
+                                    <li><span class="feature">متراژ:</span><span class="feature-num">{{$realestate->area}}</span></li>
                                 </ul>
                             </div>
                             <!-- .property-features end -->
                         </div>
                     </div>
                     <!-- .property item end -->
-
-                    <!-- .property-item #2 -->
-                    <div class="property-item">
-                        <div class="property--img">
-                            <a href="#">
-                                <img src="{{asset('assets/images/properties/11.jpg')}}" alt="property image" class="img-responsive">
-                                <span class="property--status">For Sale</span>
-                            </a>
-                        </div>
-                        <div class="property--content">
-                            <div class="property--info">
-                                <h5 class="property--title">Villa in Chicago IL</h5>
-                                <p class="property--location">1445 N State Pkwy, Chicago, IL 60610</p>
-                                <p class="property--price">$235,000</p>
-                            </div>
-                            <!-- .property-info end -->
-                            <div class="property--features">
-                                <ul class="list-unstyled mb-0">
-                                    <li><span class="feature">Beds:</span><span class="feature-num">3</span></li>
-                                    <li><span class="feature">Baths:</span><span class="feature-num">2</span></li>
-                                    <li><span class="feature">Area:</span><span class="feature-num">1120 sq ft</span></li>
-                                </ul>
-                            </div>
-                            <!-- .property-features end -->
-                        </div>
-                    </div>
-                    <!-- .property item end -->
-
-                    <!-- .property-item #3 -->
-                    <div class="property-item">
-                        <div class="property--img">
-                            <a href="#">
-                                <img src="{{asset('assets/images/properties/5.jpg')}}" alt="property image" class="img-responsive">
-                                <span class="property--status">اجاره</span>
-                            </a>
-                        </div>
-                        <div class="property--content">
-                            <div class="property--info">
-                                <h5 class="property--title">2750 House in Urban St.</h5>
-                                <p class="property--location">2750 Urban Street Dr, Anderson, IN 46011</p>
-                                <p class="property--price">$1,550<span class="time">month</span></p>
-                            </div>
-                            <!-- .property-info end -->
-                            <div class="property--features">
-                                <ul class="list-unstyled mb-0">
-                                    <li><span class="feature">Beds:</span><span class="feature-num">2</span></li>
-                                    <li><span class="feature">Baths:</span><span class="feature-num">2</span></li>
-                                    <li><span class="feature">Area:</span><span class="feature-num">1390 sq ft</span></li>
-                                </ul>
-                            </div>
-                            <!-- .property-features end -->
-                        </div>
-                    </div>
-                    <!-- .property item end -->
-
-                    <!-- .property-item #4 -->
-                    <div class="property-item">
-                        <div class="property--img">
-                            <a href="#">
-                                <img src="{{asset('assets/images/properties/4.jpg')}}" alt="property image" class="img-responsive">
-                                <span class="property--status">For Sale</span>
-                            </a>
-                        </div>
-                        <div class="property--content">
-                            <div class="property--info">
-                                <h5 class="property--title"><a href="#">House in Kent Street</a></h5>
-                                <p class="property--location">127 Kent Street, Sydney, NSW 2000</p>
-                                <p class="property--price"><span>میلیارد تومان</span>۲</p>
-                            </div>
-                            <!-- .property-info end -->
-                            <div class="property--features">
-                                <ul class="list-unstyled mb-0">
-                                    <li><span class="feature">Beds:</span><span class="feature-num">2</span></li>
-                                    <li><span class="feature">Baths:</span><span class="feature-num">2</span></li>
-                                    <li><span class="feature">Area:</span><span class="feature-num">587 sq ft</span></li>
-                                </ul>
-                            </div>
-                            <!-- .property-features end -->
-                        </div>
-                    </div>
-                    <!-- .property item end -->
-
-                    <!-- .property-item #5 -->
-                    <div class="property-item">
-                        <div class="property--img">
-                            <a href="#">
-                                <img src="{{asset('assets/images/properties/2.jpg')}}" alt="property image" class="img-responsive">
-                                <span class="property--status">For Rent</span>
-                            </a>
-                        </div>
-                        <div class="property--content">
-                            <div class="property--info">
-                                <h5 class="property--title"><a href="#">Villa in Oglesby Ave</a></h5>
-                                <p class="property--location">1035 Oglesby Ave, Chicago, IL 60617</p>
-                                <p class="property--price">$130,000<span class="time">month</span></p>
-                            </div>
-                            <!-- .property-info end -->
-                            <div class="property--features">
-                                <ul class="list-unstyled mb-0">
-                                    <li><span class="feature">Beds:</span><span class="feature-num">4</span></li>
-                                    <li><span class="feature">Baths:</span><span class="feature-num">3</span></li>
-                                    <li><span class="feature">Area:</span><span class="feature-num">800 sq ft</span></li>
-                                </ul>
-                            </div>
-                            <!-- .property-features end -->
-                        </div>
-                    </div>
-                    <!-- .property item end -->
-
-                    <!-- .property-item #6 -->
-                    <div class="property-item">
-                        <div class="property--img">
-                            <a href="#">
-                                <img src="{{asset('assets/images/properties/3.jpg')}}" alt="property image" class="img-responsive">
-                                <span class="property--status">For Sale</span>
-                            </a>
-                        </div>
-                        <div class="property--content">
-                            <div class="property--info">
-                                <h5 class="property--title"><a href="#">Apartment in Long St.</a></h5>
-                                <p class="property--location">34 Long St, Jersey City, NJ 07305</p>
-                                <p class="property--price">$70,000</p>
-                            </div>
-                            <!-- .property-info end -->
-                            <div class="property--features">
-                                <ul class="list-unstyled mb-0">
-                                    <li><span class="feature">Beds:</span><span class="feature-num">2</span></li>
-                                    <li><span class="feature">Baths:</span><span class="feature-num">1</span></li>
-                                    <li><span class="feature">Area:</span><span class="feature-num">200 sq ft</span></li>
-                                </ul>
-                            </div>
-                            <!-- .property-features end -->
-                        </div>
-                    </div>
-                    <!-- .property item end -->
-
+                    @endforeach
                 </div>
                 <!-- .carousel end -->
             </div>

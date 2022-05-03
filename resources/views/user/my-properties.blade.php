@@ -1,15 +1,15 @@
 @extends('layout.app')
 
 <div id="wrapper" class="wrapper clearfix">
-@section('header')
-@include('layout.pages-header')
-@endsection
-@section('page.head.title', 'آگهی های من')
-@include('layout.pages-title')
+    @section('header')
+    @include('layout.pages-header')
+    @endsection
+    @section('page.head.title', 'آگهی های من')
+    @include('layout.pages-title')
 
 
-@section('content')
-<!-- Document Wrapper
+    @section('content')
+    <!-- Document Wrapper
 	============================================= -->
 
 
@@ -157,10 +157,10 @@
     </section>
     <!-- #my properties  end -->
     @endsection
-    
+
     <!-- #wrapper end -->
 </div>
 
-    @section('footer')
-    @include('layout.footer')
-    @endsection
+@section('footer')
+@include('layout.footer')
+@endsection
