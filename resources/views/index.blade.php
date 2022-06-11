@@ -14,17 +14,17 @@
                     <div class="text-center">
                         <h1>ملک مورد علاقه خود را پیدا کنید</h1>
                     </div>
-                    <form class="mb-0">
-                        <div class="form-box search-properties">
-                            <div class="row">
+                    <form class="mb-0" action="{{route ('properties')}}" method="GET">
+                        <div class=" form-box ">
+                            <div class=" row">
                                 <div class="col-xs-12 col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <div class="select--box">
                                             <i class="fa fa-angle-down"></i>
-                                            <select name="select-province" id="select-province">
-                                                <option>انتخاب استان</option>
+                                            <select name="select_province" id="select_province">
+                                                <option value="">انتخاب استان</option>
                                                 @foreach ($provinces as $province)
-                                                    <option value="{{$province->id}}">{{$province->name}}</option>
+                                                <option value="{{$province->id}}">{{$province->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -35,12 +35,12 @@
                                     <div class="form-group">
                                         <div class="select--box">
                                             <i class="fa fa-angle-down"></i>
-                                            <select name="select-type" id="select-type">
-                                                <option>انتخاب کاربری</option>
-                                                <option>Apartment</option>
-                                                <option>House</option>
-                                                <option>Office</option>
-                                                <option>Villa</option>
+                                            <select name="tobu" id="tobu">
+                                                // tubo = Type of building use in db
+                                                <option value="">انتخاب کاربری</option>
+                                                <option value="home">مسکونی</option>
+                                                <option value="land">زمین/کلنگی</option>
+                                                <option value="business_office">اداری/تجاری</option>
                                             </select>
                                         </div>
                                     </div>
@@ -50,8 +50,8 @@
                                     <div class="form-group">
                                         <div class="select--box">
                                             <i class="fa fa-angle-down"></i>
-                                            <select name="select-status" id="select-status">
-                                                <option>نوع آگهی</option>
+                                            <select name="ad_type" id="ad_type">
+                                                <option value="">نوع آگهی</option>
                                                 <option value="sale">فروش</option>
                                                 <option value="mortage">رهن</option>
                                                 <option value="rent">اجاره</option>
@@ -61,19 +61,21 @@
                                 </div>
                                 <!-- .col-md-3 end -->
                                 <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <input type="submit" value="جستجو" name="submit" class="btn btn--primary btn--block">
+                                    <button type="submit" name="submit" class="btn btn--primary btn--block mb-30">جستجو</button>
                                 </div>
                                 <!-- .col-md-3 end -->
                                 <div class="col-xs-12 col-sm-6 col-md-3 option-hide">
                                     <div class="form-group">
                                         <div class="select--box">
                                             <i class="fa fa-angle-down"></i>
-                                            <select name="select-beds" id="select-beds">
-                                                <option>تعداد اتاق</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                            <select name="total_bedrooms" id="total_bedrooms">
+                                                <option value="">تعداد اتاق</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
                                             </select>
                                         </div>
                                     </div>
@@ -83,12 +85,13 @@
                                     <div class="form-group">
                                         <div class="select--box">
                                             <i class="fa fa-angle-down"></i>
-                                            <select name="select-baths" id="select-baths">
-                                                <option>نوع سرویس</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                            <select name="select_city" id="select_city">
+                                                <option value="">انتخاب شهر</option>
+                                                @foreach ($provinces as $province)
+                                                @foreach ($province->cities as $city)
+                                                <option value="{{$city->id}}">{{$city->name}}</option>
+                                                @endforeach
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -105,7 +108,7 @@
                                 </div>
                                 <!-- .col-md-3 end -->
                                 <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <a href="#" class="less--options">بیشتر</a>
+                                    <a href="#" class="less--options">فیلتر ها</a>
                                 </div>
                             </div>
                             <!-- .row end -->
@@ -154,7 +157,7 @@
                         <div class="property--img">
                             <a href="#">
                                 <img src="{{asset('assets/images/properties/3.jpg')}}" alt="property image" class="img-responsive">
-                                <span class="property--status">{{$realestate->ad_type}}</span>
+                                <span class="property--status">{{$realestate->the_ad_type}}</span>
                             </a>
                         </div>
                         <div class="property--content">
@@ -167,7 +170,7 @@
                             <div class="property--features">
                                 <ul class="list-unstyled mb-0">
                                     <li><span class="feature">اتاق خواب:</span><span class="feature-num">{{$realestate->total_bedrooms}}</span></li>
-                                    <li><span class="feature">سرویس بهداشتی:</span><span class="feature-num">1</span></li>
+                                    <li><span class="feature">سرویس بهداشتی:</span><span class="feature-num">{{$realestate->the_wc_type}}</span></li>
                                     <li><span class="feature">متراژ:</span><span class="feature-num">{{$realestate->area}}</span></li>
                                 </ul>
                             </div>
@@ -258,8 +261,8 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="heading heading-2 text-center mb-70">
-                    <h2 class="heading--title">Property By City</h2>
-                    <p class="heading--desc">Duis aute irure dolor in reprehed in volupted velit esse dolore</p>
+                    <h2 class="heading--title">آگهی املاک به تفکیک مرکز استان ها</h2>
+                    <p class="heading--desc">از میان تمام آگهی های مربوط به هر استان آگهی ملک مناسب خود را پیدا کینید`</p>
                 </div>
                 <!-- .heading-title end -->
             </div>
@@ -271,7 +274,7 @@
             <div class="col-xs-12 col-sm-8 col-md-8">
                 <div class="property-city-item">
                     <div class="property--city-img">
-                        <a href="#">
+                        <a href="{{route('tehran-properties')}}">
                             <img src="{{asset('assets/images/properties/city/1.jpg')}}" alt="city" class="img-responsive">
                             <div class="property--city-overlay">
                                 <div class="property--item-content">
@@ -290,7 +293,7 @@
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <div class="property-city-item">
                     <div class="property--city-img">
-                        <a href="#">
+                        <a href="{{route('isfahan-properties')}}">
                             <img src="{{asset('assets/images/properties/city/2.jpg')}}" alt="city" class="img-responsive">
                             <div class="property--city-overlay">
                                 <div class="property--item-content">
@@ -313,7 +316,7 @@
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <div class="property-city-item">
                     <div class="property--city-img">
-                        <a href="#">
+                        <a href="{{route('shiraz-properties')}}">
                             <img src="{{asset('assets/images/properties/city/3.jpg')}}" alt="city" class="img-responsive">
                             <div class="property--city-overlay">
                                 <div class="property--item-content">
@@ -332,7 +335,7 @@
             <div class="col-xs-12 col-sm-8 col-md-8">
                 <div class="property-city-item">
                     <div class="property--city-img">
-                        <a href="#">
+                        <a href="{{route('tabriz-properties')}}">
                             <img src="{{asset('assets/images/properties/city/4.jpg')}}" alt="city" class="img-responsive">
                             <div class="property--city-overlay">
                                 <div class="property--item-content">

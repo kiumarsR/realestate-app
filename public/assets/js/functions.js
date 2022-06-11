@@ -142,7 +142,7 @@
                 },
                 1000: {
                     items: $Carousel.data('slide'),
-                },
+                }
             }
         });
     });
@@ -242,7 +242,6 @@
             }
         });
         $(this).closest('.filter').find($sliderAmount).val("$" + $sliderRange.slider("values", 0) + " - $" + $sliderRange.slider("values", 1));
-        
     });
 
     /*-------------------  Dropzone UPLOAD ---------------------*/

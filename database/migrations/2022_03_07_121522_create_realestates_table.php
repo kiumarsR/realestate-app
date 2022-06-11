@@ -40,7 +40,6 @@ return new class extends Migration {
             $table->string('frontage_type')->comment('building front appearance')->nullable();
             $table->string('fct')->comment('floor covering type')->nullable();
             $table->string('kitchen_cabinets')->comment('kitchen cabinets type|mdf|wooden');
-            $table->string('facilities')->comment('apartment facilities like having parking,elevator and etc.')->nullable();
             $table->string('heating_system')->nullable();
             $table->string('cooling_system')->nullable();
             $table->string('housing')->comment('evacuated|in the hands of the owner|in the hands of the tenant')->nullable();

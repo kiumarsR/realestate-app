@@ -20,29 +20,41 @@
                 @include('layout.pages-sidebar')
                 <!-- .col-md-4 -->
                 <div class="col-xs-12 col-sm-12 col-md-8">
-                    <form class="mb-0" action="{{route('user.update', ['user' => auth()->user()->id])}}" method="POST">
+                    <form class="mb-0" action="{{route('user.update', ['id' => $user->id])}}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="form-box">
-                            <h4 class="form--title">مشخصات</h4>
+                            <h4 class="form--title">مشخصات</h4>`
                             <div class="form-group">
                                 <label for="first-name">نام</label>
-                                <input type="text" class="form-control" name="first-name" id="first-name" value="{{ Auth::user()->first_name }}">
+                                <input type="text" class="form-control" name="first_name" id="first_name" value="{{ $user->first_name }}">
+                                <span class="mb-10">
+                                    {{$errors->first('first_name')}}
+                                </span>
                             </div>
                             <!-- .form-group end -->
                             <div class="form-group">
                                 <label for="last-name">نام خانوادگی</label>
-                                <input type="text" class="form-control" name="last-name" id="last-name" value="{{ Auth::user()->last_name}}">
+                                <input type="text" class="form-control" name="last_name" id="last_name" value="{{$user->last_name}}">
+                                <span class="mb-10">
+                                    {{$errors->first('last_name')}}
+                                </span>
                             </div>
                             <!-- .form-group end -->
                             <div class="form-group">
                                 <label for="email-address">پست الکترونیکی</label>
-                                <input type="email" class="form-control" name="email-address" id="email-address" value="{{ Auth::user()->email }}">
+                                <input type="email" class="form-control" name="email" id="email" value="{{$user->email}}">
+                                <span class="mb-10">
+                                    {{$errors->first('email')}}
+                                </span>
                             </div>
                             <!-- .form-group end -->
                             <div class="form-group">
                                 <label for="phone-number">شماره موبایل</label>
-                                <input type="text" class="form-control" name="phone-number" id="phone-number" value="{{ Auth::user()->phone_number}}">
+                                <input type="text" class="form-control" name="phone_number" id="phone_number" value="{{$user->phone_number}}">
+                                <span class="mb-10">
+                                    {{$errors->first('phone_number')}}
+                                </span>
                             </div>
                             <!-- .form-group end -->
                         </div>
@@ -53,16 +65,19 @@
                             <div class="form-group">
                                 <label for="password">گذرواژه</label>
                                 <input type="password" class="form-control" name="password" id="password">
+                                <span class="mb-10">
+                                    {{$errors->first('password')}}
+                                </span>
                             </div>
                             <!-- .form-group end -->
                             <div class="form-group">
                                 <label for="confirm-password">تکرار گذرواژه</label>
-                                <input type="password" class="form-control" name="confirm-password" id="confirm-password">
+                                <input type="password" class="form-control" name="password_confirmation" id="confirm-password">
                             </div>
                             <!-- .form-group end -->
                         </div>
                         <!-- .form-box end -->
-                        <button type="submit" name="submit" class="btn btn--primary" value="Save Edits">ذخیره تغییرات</button>
+                        <button type="submit" name="submit" class="btn btn--primary">ذخیره تغییرات</button>
                     </form>
                 </div>
                 <!-- .col-md-8 end -->

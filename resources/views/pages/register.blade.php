@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/form-style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/form-theme.css')}}">
 </head>
+
 <body>
     <div class="form-body" class="container-fluid">
         <div class="row">
@@ -57,6 +59,12 @@
                                     {{$errors->first('password')}}
                                 </span>
                             </div>
+                            <div>
+                                <input class="form-control mt-10" type="password" name="password_confirmation" placeholder="تکرار گذرواژه">
+                                <span class="mb-10">
+                                    {{$errors->first('password')}}
+                                </span>
+                            </div>
                             <div class="form-button">
                                 <button id="submit" type="submit" class="ibtn">عضویت</button>
                             </div>
@@ -66,8 +74,9 @@
             </div>
         </div>
     </div>
-<script type="text/javascript" src="{{asset('assets/js/jquery-2.2.4.mi.js')}}"></script>
-<script type="text/javascript" src="{{asset('assets/js/bootstrap.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('asstts/js/login.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/jquery-2.2.4.mi.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('asstts/js/login.js')}}"></script>
 </body>
+
 </html>

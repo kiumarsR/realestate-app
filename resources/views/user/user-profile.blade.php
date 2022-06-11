@@ -47,7 +47,7 @@
                             <!-- .form-group end -->
                         </div>
                         <!-- .form-box end -->
-                        <a href="{{route('user.edit', auth()->user()->id)}}" class="btn btn--primary">ویرایش اطلاعات</a>
+                        <a href="{{route('user.edit', ['id' => Auth::user()->id])}}" class="btn btn--primary">ویرایش اطلاعات</a>
                     </form>
                 </div>
                 <!-- .col-md-8 end -->

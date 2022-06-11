@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('title', 'تک محصول')
+@section('title', $realestate->title)
 <!-- Document Wrapper
 	============================================= -->
 <div id="wrapper" class="wrapper clearfix">
@@ -23,12 +23,12 @@
                     <div class="property-single-gallery-info">
                         <div class="property--info clearfix">
                             <div class="pull-left">
-                                <h5 class="property--title">1220 Petersham Town</h5>
-                                <p class="property--location"><i class="fa fa-map-marker"></i>Petersham town, Wardll St - Australia PA 6550</p>
+                                <h5 class="property--title">{{$realestate->title}}</h5>
+                                <p class="property--location"><i class="fa fa-map-marker"></i>{{$realestate->full_address}}</p>
                             </div>
                             <div class="pull-right">
-                                <span class="property--status">For Sale</span>
-                                <p class="property--price">$130,000</p>
+                                <span class="property--status">{{$realestate->the_ad_type}}</span>
+                                <p class="property--price">{{$realestate->the_sale_price}}<span class="time">/تومان</span></p>
                             </div>
                         </div>
                         <!-- .property-info end -->
@@ -36,7 +36,7 @@
                             <div class="pull-left">
                                 <ul class="list-unstyled list-inline mb-0">
                                     <li>
-                                        Property ID:<span class="value">5331</span>
+                                        Property ID:<span class="value">{{$realestate->id}}</span>
                                     </li>
                                     <li>
                                         Add to favorites:<span class="value"> <i class="fa fa-heart-o"></i></span>
@@ -113,12 +113,12 @@
                             <!-- feature-panel #1 -->
                             <div class="col-xs-6 col-sm-4 col-md-4">
                                 <div class="feature-panel">
-                                    <div class="feature--img">
+                                    <!-- <div class="feature--img">
                                         <img src="{{asset('assets/images/property-single/features/1.png')}}" alt="icon">
-                                    </div>
+                                    </div> -->
                                     <div class="feature--content">
                                         <h5>متراژ:</h5>
-                                        <p>1270 sq ft</p>
+                                        <p>{{$realestate->area}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -126,12 +126,9 @@
                             <!-- feature-panel #2 -->
                             <div class="col-xs-6 col-sm-4 col-md-4">
                                 <div class="feature-panel">
-                                    <div class="feature--img">
-                                        <img src="{{asset('assets/images/property-single/features/2.png')}}" alt="icon">
-                                    </div>
                                     <div class="feature--content">
                                         <h5>تعداد اتاق خواب:</h5>
-                                        <p>4 Bedrooms</p>
+                                        <p>{{$realestate->total_bedrooms}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -139,12 +136,9 @@
                             <!-- feature-panel #3 -->
                             <div class="col-xs-6 col-sm-4 col-md-4">
                                 <div class="feature-panel">
-                                    <div class="feature--img">
-                                        <img src="{{asset('assets/images/property-single/features/3.png')}}" alt="icon">
-                                    </div>
                                     <div class="feature--content">
                                         <h5>سرویس بهداشتی:</h5>
-                                        <p>2 Bathrooms</p>
+                                        <p>{{$realestate->the_wc_type}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -152,12 +146,9 @@
                             <!-- feature-panel #4 -->
                             <div class="col-xs-6 col-sm-4 col-md-4">
                                 <div class="feature-panel">
-                                    <div class="feature--img">
-                                        <img src="{{asset('assets/images/property-single/features/4.png')}}" alt="icon">
-                                    </div>
                                     <div class="feature--content">
-                                        <h5>Rooms:</h5>
-                                        <p>6 Rooms</p>
+                                        <h5>نوع کاربری:</h5>
+                                        <p>{{$realestate->the_tobu}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -165,12 +156,9 @@
                             <!-- feature-panel #5 -->
                             <div class="col-xs-6 col-sm-4 col-md-4">
                                 <div class="feature-panel">
-                                    <div class="feature--img">
-                                        <img src="{{asset('assets/images/property-single/features/5.png')}}" alt="icon">
-                                    </div>
                                     <div class="feature--content">
                                         <h5>طبقه:</h5>
-                                        <p>3 Floors</p>
+                                        <p>{{$realestate->apartment_floor}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -178,28 +166,76 @@
                             <!-- feature-panel #6 -->
                             <div class="col-xs-6 col-sm-4 col-md-4">
                                 <div class="feature-panel">
-                                    <div class="feature--img">
-                                        <img src="{{asset('assets/images/property-single/features/6.png')}}" alt="icon">
-                                    </div>
                                     <div class="feature--content">
-                                        <h5>تعداد پارکینگ:</h5>
-                                        <p>2 Garages</p>
+                                        <h5>نما :</h5>
+                                        <p>{{$realestate->the_front}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- feature-panel end -->
+                            <!-- feature-panel #7 -->
+                            <div class="col-xs-6 col-sm-4 col-md-4">
+                                <div class="feature-panel">
+                                    <div class="feature--content">
+                                        <h5>کابینت :</h5>
+                                        <p>{{$realestate->the_kitchen_cabinets}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- feature-panel end -->
+                            <!-- feature-panel #8 -->
+                            <div class="col-xs-6 col-sm-4 col-md-4">
+                                <div class="feature-panel">
+                                    <div class="feature--content">
+                                        <h5>کفپوش :</h5>
+                                        <p>{{$realestate->the_fct}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- feature-panel end -->
+                            <!-- feature-panel #9 -->
+                            <div class="col-xs-6 col-sm-4 col-md-4">
+                                <div class="feature-panel">
+                                    <div class="feature--content">
+                                        <h5> سن بنا:</h5>
+                                        <p>{{$realestate->building_age}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- feature-panel end -->
+                            <!-- feature-panel #10 -->
+                            <div class="col-xs-6 col-sm-4 col-md-4">
+                                <div class="feature-panel">
+                                    <div class="feature--content">
+                                        <h5>جهت بنا :</h5>
+                                        <p>{{$realestate->the_direction}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- feature-panel end -->
+                            <!-- feature-panel #11 -->
+                            <div class="col-xs-6 col-sm-4 col-md-4">
+                                <div class="feature-panel">
+                                    <div class="feature--content">
+                                        <h5>سیستم سرمایش:</h5>
+                                        <p>{{$realestate->the_cooling}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- feature-panel end -->
+                            <!-- feature-panel #12 -->
+                            <div class="col-xs-6 col-sm-4 col-md-4">
+                                <div class="feature-panel">
+                                    <div class="feature--content">
+                                        <h5>سیستم گرمایش:</h5>
+                                        <p>{{$realestate->the_heating}}</p>
                                     </div>
                                 </div>
                             </div>
                             <!-- feature-panel end -->
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="property--details">
-                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و
-                                        برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه
-                                        و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان
-                                        امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای
-                                        موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و
-                                        برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه
-                                        و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان
-                                        امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای
-                                        موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                                    <p>{{$realestate->description}}</p>
                                 </div>
                                 <!-- .property-details end -->
                             </div>
@@ -217,90 +253,18 @@
                                     <h2 class="heading--title">امکانات</h2>
                                 </div>
                             </div>
+                            @foreach ($realestate->facilities->chunk(4) as $facilities_item)
+                            @foreach ($facilities_item as $facility)
                             <!-- feature-item #1 -->
                             <div class="col-xs-6 col-sm-4 col-md-4">
                                 <div class="feature-item">
-                                    <p>Center Cooling</p>
+                                    <p>{{$facility->facility_name}}</p>
                                 </div>
                             </div>
                             <!-- feature-item end -->
-                            <!-- feature-item #2 -->
-                            <div class="col-xs-6 col-sm-4 col-md-4">
-                                <div class="feature-item">
-                                    <p>Balcony</p>
-                                </div>
-                            </div>
-                            <!-- feature-item end -->
-                            <!-- feature-item #3 -->
-                            <div class="col-xs-6 col-sm-4 col-md-4">
-                                <div class="feature-item">
-                                    <p>Pet Friendly</p>
-                                </div>
-                            </div>
-                            <!-- feature-item end -->
-                            <!-- feature-item #4 -->
-                            <div class="col-xs-6 col-sm-4 col-md-4">
-                                <div class="feature-item">
-                                    <p>Fire Alarm</p>
-                                </div>
-                            </div>
-                            <!-- feature-item end -->
-                            <!-- feature-item #5 -->
-                            <div class="col-xs-6 col-sm-4 col-md-4">
-                                <div class="feature-item">
-                                    <p>Modern Kitchen</p>
-                                </div>
-                            </div>
-                            <!-- feature-item end -->
-                            <!-- feature-item #6 -->
-                            <div class="col-xs-6 col-sm-4 col-md-4">
-                                <div class="feature-item">
-                                    <p>Storage</p>
-                                </div>
-                            </div>
-                            <!-- feature-item end -->
-                            <!-- feature-item #7 -->
-                            <div class="col-xs-6 col-sm-4 col-md-4">
-                                <div class="feature-item">
-                                    <p>Heating</p>
-                                </div>
-                            </div>
-                            <!-- feature-item end -->
-                            <!-- feature-item #8 -->
-                            <div class="col-xs-6 col-sm-4 col-md-4">
-                                <div class="feature-item">
-                                    <p>Pool</p>
-                                </div>
-                            </div>
-                            <!-- feature-item end -->
-                            <!-- feature-item #9 -->
-                            <div class="col-xs-6 col-sm-4 col-md-4">
-                                <div class="feature-item">
-                                    <p>Laundry</p>
-                                </div>
-                            </div>
-                            <!-- feature-item end -->
-                            <!-- feature-item #10 -->
-                            <div class="col-xs-6 col-sm-4 col-md-4">
-                                <div class="feature-item">
-                                    <p>Gym</p>
-                                </div>
-                            </div>
-                            <!-- feature-item end -->
-                            <!-- feature-item #11 -->
-                            <div class="col-xs-6 col-sm-4 col-md-4">
-                                <div class="feature-item">
-                                    <p>Elevator</p>
-                                </div>
-                            </div>
-                            <!-- feature-item end -->
-                            <!-- feature-item #12 -->
-                            <div class="col-xs-6 col-sm-4 col-md-4">
-                                <div class="feature-item">
-                                    <p>Dish Washer</p>
-                                </div>
-                            </div>
-                            <!-- feature-item end -->
+                            @endforeach
+                            @endforeach
+
                         </div>
                         <!-- .row end -->
                     </div>
@@ -316,10 +280,16 @@
                             <!-- .col-md-12 end -->
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <ul class="list-unstyled mb-20">
-                                    <li><span>آدرس:</span>1220 Petersham Town</li>
-                                    <li><span>شهر:</span>Sydney</li>
-                                    <li><span>استان:</span>تهران</li>
-                                    <li><span>شماره تماس:</span>091216xxx96</li>
+                                    <li class="w-100"><span>آدرس:</span>{{$realestate->full_address}}</li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <ul class="list-unstyled mb-20">
+                                    <li><span>شهر:</span>{{$realestate->city['name']}}</li>
+                                    <li><span>استان:</span>{{$realestate->province['name']}}</li>
+                                    @isset($realestate->user->phone_number)
+                                    <li><span>شماره تماس:</span>{{$realestate->user->phone_number}}
+                                        @endisset ()
                                 </ul>
                             </div>
 
@@ -487,7 +457,7 @@
                                     <textarea class="form-control" name="contact-message" id="message" rows="2" placeholder="(اختیاری)"></textarea>
                                 </div>
                                 <!-- .form-group end -->
-                                <button type="submit" value="Send Request" name="submit" class="btn btn--primary btn--block">ارسال درخواستّ</button>
+                                <button type="submit" value="Send Request" name="submit" class="btn btn--primary btn--block">ارسال درخواست</button>
 
                             </form>
                         </div>
@@ -503,54 +473,25 @@
                         <div class="widget--content">
                             <div class="carousel carousel-dots" data-slide="1" data-slide-rs="1" data-autoplay="true" data-nav="false" data-dots="true" data-space="25" data-loop="true"
                                 data-speed="800">
+                                @foreach ($realestates as $realestate)
+
                                 <!-- .property-item #1 -->
                                 <div class="property-item">
                                     <div class="property--img">
                                         <img src="{{asset('assets/images/properties/13.jpg')}}" alt="property image" class="img-responsive">
-                                        <span class="property--status">For Rent</span>
+                                        <span class="property--status">{{$realestate->the_ad_type}}</span>
                                     </div>
                                     <div class="property--content">
                                         <div class="property--info">
-                                            <h5 class="property--title">House in Chicago</h5>
-                                            <p class="property--location">1445 N State Pkwy, Chicago, IL 60610</p>
-                                            <p class="property--price">$1200<span class="time">month</span></p>
+                                            <h5 class="property--title"><a href="{{route('single-property', ['property' => $realestate->id])}}">{{$realestate->title}}</a></h5>
+                                            <p class="property--location">{{$realestate->full_address}}</p>
+                                            <p class="property--price">{{$realestate->the_sale_price}}<span class="time">تومان</span></p>
                                         </div>
                                         <!-- .property-info end -->
                                     </div>
                                 </div>
                                 <!-- .property item end -->
-                                <!-- .property-item #2 -->
-                                <div class="property-item">
-                                    <div class="property--img">
-                                        <img src="{{asset('assets/images/properties/2.jpg')}}" alt="property image" class="img-responsive">
-                                        <span class="property--status">For Rent</span>
-                                    </div>
-                                    <div class="property--content">
-                                        <div class="property--info">
-                                            <h5 class="property--title"><a href="#">Villa in Oglesby Ave</a></h5>
-                                            <p class="property--location">1035 Oglesby Ave, Chicago, IL 60617</p>
-                                            <p class="property--price">$130,000<span class="time">month</span></p>
-                                        </div>
-                                        <!-- .property-info end -->
-                                    </div>
-                                </div>
-                                <!-- .property item end -->
-                                <!-- .property-item #3 -->
-                                <div class="property-item">
-                                    <div class="property--img">
-                                        <img src="{{asset('assets/images/properties/3.jpg')}}" alt="property image" class="img-responsive">
-                                        <span class="property--status">For Sale</span>
-                                    </div>
-                                    <div class="property--content">
-                                        <div class="property--info">
-                                            <h5 class="property--title"><a href="#">Apartment in Long St.</a></h5>
-                                            <p class="property--location">34 Long St, Jersey City, NJ 07305</p>
-                                            <p class="property--price">$70,000</p>
-                                        </div>
-                                        <!-- .property-info end -->
-                                    </div>
-                                </div>
-                                <!-- .property item end -->
+                                @endforeach
                             </div>
                             <!-- .carousel end -->
                         </div>
@@ -583,168 +524,34 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="carousel carousel-dots" data-slide="3" data-slide-rs="1" data-autoplay="true" data-nav="false" data-dots="true" data-space="25" data-loop="true" data-speed="800">
-                        <!-- .property-item #1 -->
+                        <!-- .property-items -->
+                        @foreach ($similars as $similar)
                         <div class="property-item">
                             <div class="property--img">
                                 <a href="#">
                                     <img src="{{asset('assets/images/properties/3.jpg')}}" alt="property image" class="img-responsive">
-                                    <span class="property--status">For Sale</span>
+                                    <span class="property--status">{{$similar->the_ad_type}}</span>
                                 </a>
                             </div>
                             <div class="property--content">
                                 <div class="property--info">
-                                    <h5 class="property--title"><a href="#">Apartment in Long St.</a></h5>
-                                    <p class="property--location">34 Long St, Jersey City, NJ 07305</p>
-                                    <p class="property--price">$70,000</p>
+                                    <h5 class="property--title"><a href="#">{{$similar->title}}</a></h5>
+                                    <p class="property--location">{{$similar->province['name']}}</p>
+                                    <p class="property--price">{{$similar->the_sale_price}}<span class="time">تومان</span></p>
                                 </div>
                                 <!-- .property-info end -->
                                 <div class="property--features">
                                     <ul class="list-unstyled mb-0">
-                                        <li><span class="feature">Beds:</span><span class="feature-num">2</span></li>
-                                        <li><span class="feature">Baths:</span><span class="feature-num">1</span></li>
-                                        <li><span class="feature">Area:</span><span class="feature-num">200 sq ft</span></li>
+                                        <li><span class="feature">اتاق خواب:</span><span class="feature-num">{{$similar->total_bedrooms}}</span></li>
+                                        <li><span class="feature">سرویس بهداشتی:</span><span class="feature-num">{{$similar->the_wc_type}}</span></li>
+                                        <li><span class="feature">متراژ:</span><span class="feature-num">{{$similar->area}}</span></li>
                                     </ul>
                                 </div>
                                 <!-- .property-features end -->
                             </div>
                         </div>
                         <!-- .property item end -->
-
-                        <!-- .property-item #2 -->
-                        <div class="property-item">
-                            <div class="property--img">
-                                <a href="#">
-                                    <img src="{{asset('assets/images/properties/11.jpg')}}" alt="property image" class="img-responsive">
-                                    <span class="property--status">For Sale</span>
-                                </a>
-                            </div>
-                            <div class="property--content">
-                                <div class="property--info">
-                                    <h5 class="property--title"><a href="#">Villa in Chicago IL</a></h5>
-                                    <p class="property--location">1445 N State Pkwy, Chicago, IL 60610</p>
-                                    <p class="property--price">$235,000</p>
-                                </div>
-                                <!-- .property-info end -->
-                                <div class="property--features">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><span class="feature">Beds:</span><span class="feature-num">3</span></li>
-                                        <li><span class="feature">Baths:</span><span class="feature-num">2</span></li>
-                                        <li><span class="feature">Area:</span><span class="feature-num">1120 sq ft</span></li>
-                                    </ul>
-                                </div>
-                                <!-- .property-features end -->
-                            </div>
-                        </div>
-                        <!-- .property item end -->
-
-                        <!-- .property-item #3 -->
-                        <div class="property-item">
-                            <div class="property--img">
-                                <a href="#">
-                                    <img src="{{asset('assets/images/properties/5.jpg')}}" alt="property image" class="img-responsive">
-                                    <span class="property--status">For Rent</span>
-                                </a>
-                            </div>
-                            <div class="property--content">
-                                <div class="property--info">
-                                    <h5 class="property--title"><a href="#">2750 House in Urban St.</a></h5>
-                                    <p class="property--location">2750 Urban Street Dr, Anderson, IN 46011</p>
-                                    <p class="property--price">$1,550<span class="time">month</span></p>
-                                </div>
-                                <!-- .property-info end -->
-                                <div class="property--features">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><span class="feature">Beds:</span><span class="feature-num">2</span></li>
-                                        <li><span class="feature">Baths:</span><span class="feature-num">2</span></li>
-                                        <li><span class="feature">Area:</span><span class="feature-num">1390 sq ft</span></li>
-                                    </ul>
-                                </div>
-                                <!-- .property-features end -->
-                            </div>
-                        </div>
-                        <!-- .property item end -->
-
-                        <!-- .property-item #4 -->
-                        <div class="property-item">
-                            <div class="property--img">
-                                <a href="#">
-                                    <img src="{{asset('assets/images/properties/4.jpg')}}" alt="property image" class="img-responsive">
-                                    <span class="property--status">For Sale</span>
-                                </a>
-                            </div>
-                            <div class="property--content">
-                                <div class="property--info">
-                                    <h5 class="property--title"><a href="#">House in Kent Street</a></h5>
-                                    <p class="property--location">127 Kent Street, Sydney, NSW 2000</p>
-                                    <p class="property--price">$130,000</p>
-                                </div>
-                                <!-- .property-info end -->
-                                <div class="property--features">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><span class="feature">Beds:</span><span class="feature-num">2</span></li>
-                                        <li><span class="feature">Baths:</span><span class="feature-num">2</span></li>
-                                        <li><span class="feature">Area:</span><span class="feature-num">587 sq ft</span></li>
-                                    </ul>
-                                </div>
-                                <!-- .property-features end -->
-                            </div>
-                        </div>
-                        <!-- .property item end -->
-
-                        <!-- .property-item #5 -->
-                        <div class="property-item">
-                            <div class="property--img">
-                                <a href="#">
-                                    <img src="{{asset('assets/images/properties/2.jpg')}}" alt="property image" class="img-responsive">
-                                    <span class="property--status">For Rent</span>
-                                </a>
-                            </div>
-                            <div class="property--content">
-                                <div class="property--info">
-                                    <h5 class="property--title"><a href="#">Villa in Oglesby Ave</a></h5>
-                                    <p class="property--location">1035 Oglesby Ave, Chicago, IL 60617</p>
-                                    <p class="property--price">$130,000<span class="time">month</span></p>
-                                </div>
-                                <!-- .property-info end -->
-                                <div class="property--features">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><span class="feature">Beds:</span><span class="feature-num">4</span></li>
-                                        <li><span class="feature">Baths:</span><span class="feature-num">3</span></li>
-                                        <li><span class="feature">Area:</span><span class="feature-num">800 sq ft</span></li>
-                                    </ul>
-                                </div>
-                                <!-- .property-features end -->
-                            </div>
-                        </div>
-                        <!-- .property item end -->
-
-                        <!-- .property-item #6 -->
-                        <div class="property-item">
-                            <div class="property--img">
-                                <a href="#">
-                                    <img src="{{asset('assets/images/properties/3.jpg')}}" alt="property image" class="img-responsive">
-                                    <span class="property--status">For Sale</span>
-                                </a>
-                            </div>
-                            <div class="property--content">
-                                <div class="property--info">
-                                    <h5 class="property--title"><a href="#">Apartment in Long St.</a></h5>
-                                    <p class="property--location">34 Long St, Jersey City, NJ 07305</p>
-                                    <p class="property--price">$70,000</p>
-                                </div>
-                                <!-- .property-info end -->
-                                <div class="property--features">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><span class="feature">Beds:</span><span class="feature-num">2</span></li>
-                                        <li><span class="feature">Baths:</span><span class="feature-num">1</span></li>
-                                        <li><span class="feature">Area:</span><span class="feature-num">200 sq ft</span></li>
-                                    </ul>
-                                </div>
-                                <!-- .property-features end -->
-                            </div>
-                        </div>
-                        <!-- .property item end -->
-
+                        @endforeach
                     </div>
                     <!-- .carousel end -->
                 </div>

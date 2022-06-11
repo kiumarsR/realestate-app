@@ -345,7 +345,7 @@
                                                 <option value="boiler-room">موتورخانه</option>
                                                 <option value="combi">پکیج</option>
                                                 <option value="fireplace">شومینه</option>
-                                                <option value="under-floor-heating ">گرمایش از کف</option>
+                                                <option value="under-floor-heating">گرمایش از کف</option>
                                             </select>
                                         </div>
                                     </div>
@@ -409,165 +409,19 @@
                                     <h4 class="form--title">امکانات ملک</h4>
                                 </div>
                                 <!-- .col-md-12 end -->
+                                @foreach ($facilities->chunk(4) as $facility_item)
+                                @foreach ($facility_item as $item)
                                 <div class="col-xs-12 col-sm-6 col-md-3">
                                     <div class="input-checkbox">
                                         <label class="label-checkbox">
-                                            <span>Center Cooling</span>
-                                            <input type="checkbox">
+                                            <span>{{$item->facility_name}}</span>
+                                            <input name="facilities[]" type="checkbox" value="{{$item->id}}">
                                             <span class="check-indicator"></span>
                                         </label>
                                     </div>
                                 </div>
-                                <!-- .col-md-3 end -->
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="input-checkbox">
-                                        <label class="label-checkbox">
-                                            <span>Balcony</span>
-                                            <input type="checkbox">
-                                            <span class="check-indicator"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- .col-md-3 end -->
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="input-checkbox">
-                                        <label class="label-checkbox">
-                                            <span>Pet Friendly</span>
-                                            <input type="checkbox">
-                                            <span class="check-indicator"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- .col-md-3 end -->
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="input-checkbox">
-                                        <label class="label-checkbox">
-                                            <span>Barbeque</span>
-                                            <input type="checkbox">
-                                            <span class="check-indicator"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- .col-md-3 end -->
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="input-checkbox">
-                                        <label class="label-checkbox">
-                                            <span>Fire Alarm</span>
-                                            <input type="checkbox">
-                                            <span class="check-indicator"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- .col-md-3 end -->
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="input-checkbox">
-                                        <label class="label-checkbox">
-                                            <span>Modern Kitchen</span>
-                                            <input type="checkbox">
-                                            <span class="check-indicator"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- .col-md-3 end -->
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="input-checkbox">
-                                        <label class="label-checkbox">
-                                            <span>Storage</span>
-                                            <input type="checkbox">
-                                            <span class="check-indicator"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- .col-md-3 end -->
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="input-checkbox">
-                                        <label class="label-checkbox">
-                                            <span>Dryer</span>
-                                            <input type="checkbox">
-                                            <span class="check-indicator"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- .col-md-3 end -->
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="input-checkbox">
-                                        <label class="label-checkbox">
-                                            <span>Heating</span>
-                                            <input type="checkbox">
-                                            <span class="check-indicator"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- .col-md-3 end -->
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="input-checkbox">
-                                        <label class="label-checkbox">
-                                            <span>Pool</span>
-                                            <input type="checkbox">
-                                            <span class="check-indicator"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- .col-md-3 end -->
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="input-checkbox">
-                                        <label class="label-checkbox">
-                                            <span>Laundry</span>
-                                            <input type="checkbox">
-                                            <span class="check-indicator"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- .col-md-3 end -->
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="input-checkbox">
-                                        <label class="label-checkbox">
-                                            <span>Sauna</span>
-                                            <input type="checkbox">
-                                            <span class="check-indicator"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- .col-md-3 end -->
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="input-checkbox">
-                                        <label class="label-checkbox">
-                                            <span>Gym</span>
-                                            <input type="checkbox">
-                                            <span class="check-indicator"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- .col-md-3 end -->
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="input-checkbox">
-                                        <label class="label-checkbox">
-                                            <span>Elevator</span>
-                                            <input type="checkbox">
-                                            <span class="check-indicator"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- .col-md-3 end -->
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="input-checkbox">
-                                        <label class="label-checkbox">
-                                            <span>Dish Washer</span>
-                                            <input type="checkbox">
-                                            <span class="check-indicator"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- .col-md-3 end -->
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="input-checkbox">
-                                        <label class="label-checkbox">
-                                            <span>Emergency Exit</span>
-                                            <input type="checkbox">
-                                            <span class="check-indicator"></span>
-                                        </label>
-                                    </div>
-                                </div>
+                                @endforeach
+                                @endforeach
                                 <!-- .col-md-3 end -->
                             </div>
                             <!-- .row end -->
@@ -599,7 +453,7 @@
                                 <div class="col-xs-12 col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label for="address">آدرس*</label>
-                                        <input type="text" class="form-control" name="address" id="address" placeholder="Enter your property address" required>
+                                        <input type="text" class="form-control" name="address" id="address" placeholder="آدرس ملک مورد نظر را وارد کنید" required>
                                     </div>
                                 </div>
                                 <!-- .col-md-4 end -->
@@ -609,6 +463,7 @@
                                         <div class="select--box">
                                             <i class="fa fa-angle-down"></i>
                                             <select name="province">
+                                                <option value="">-- انتخاب استان --</option>
                                                 @foreach ($provinces as $province)
                                                 <option value="{{$province->id}}">{{$province->name}}</option>
                                                 @endforeach
@@ -623,6 +478,7 @@
                                         <div class="select--box">
                                             <i class="fa fa-angle-down"></i>
                                             <select name="city">
+                                                <option value="">-- انتخاب شهر --</option>
                                                 @foreach ($provinces as $province)
                                                 @foreach ($province->cities as $city)
                                                 <option value="{{$city->id}}">{{$city->name}}</option>
@@ -639,7 +495,7 @@
                                         <div class="select--box">
                                             <i class="fa fa-angle-down"></i>
                                             <select id="housing" name="housing">
-                                                <option>انتخاب کنید</option>
+                                                <option>-- انتخاب کنید --</option>
                                                 <option value="evacuated">تخلیه</option>
                                                 <option value="owner">در دست مالک</option>
                                                 <option value="tenant">در دست مستاجر</option>
@@ -661,6 +517,7 @@
                                         <div class="select--box">
                                             <i class="fa fa-angle-down"></i>
                                             <select id="district" name="district">
+                                                <option value="">-- انتخاب محله --</option>
                                                 @foreach ($provinces as $province)
                                                 @foreach ($province->districts as $district)
                                                 <option value="{{$district->id}}">{{$district->name}}</option>

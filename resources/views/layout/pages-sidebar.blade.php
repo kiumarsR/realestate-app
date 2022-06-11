@@ -2,7 +2,7 @@
     <div class="edit--profile-area">
         <ul class="edit--profile-links list-unstyled mb-0">
             <li><a href="{{route('profile')}}" class="active">پروفایل</a></li>
-            <li><a href="{{route('user.edit')}}">ویرایش پروفایل</a></li>
+            <li><a href="{{route('user.edit', ['id' => Auth::user()->id])}}">ویرایش پروفایل</a></li>
             <li><a href="{{route('my-properties')}}">آگهی های من</a></li>
             <li><a href="{{route('favourite-properties')}}">نشان شده</a></li>
             <li><a href="{{route('add-properties')}}">ثبت آگهی</a></li>
